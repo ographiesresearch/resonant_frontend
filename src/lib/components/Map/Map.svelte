@@ -60,9 +60,9 @@
         map = new mapbox.Map(mapOptions);
         
         map.on ('load', () => {
-            map.addSource('adders', {
+            map.addSource('priority-areas', {
                 type: 'vector',
-                url: 'mapbox://ericrobskyhuntley.3tqai42w'
+                url: 'mapbox://ericrobskyhuntley.02373tha'
             });
             map.addSource('choropleth', {
                 type: 'vector',
@@ -74,6 +74,7 @@
                     type: 'fill',
                     source: 'choropleth',
                     'source-layer': 'resonant_overlay-3wot0h',
+                    'filter': ['>', 'how_many', 0],
                     paint: {
                         'fill-opacity': {
                             property: 'how_many',
@@ -86,9 +87,9 @@
             )
             map.addLayer(
                 {
-                    id: "adders-shadow",
-                    source: "adders",
-                    "source-layer": "adders_dissolved-2x5v3w",
+                    id: "priority-areas-shadow",
+                    source: "priority-areas",
+                    "source-layer": "priority_boundaries-6gvqlb",
                     type: "line",
                     "line-join": "bevel",
                     "line-cap": "round",
@@ -102,9 +103,9 @@
             )
             map.addLayer(
                 {
-                    id: 'adders-outlines',
-                    source: 'adders',
-                    'source-layer': 'adders_dissolved-2x5v3w',
+                    id: 'priority-areas-outlines',
+                    source: 'priority-areas',
+                    'source-layer': 'priority_boundaries-6gvqlb',
                     type: 'line',
                     paint: {
                         'line-color': colors.primary,
@@ -114,17 +115,17 @@
             )
             map.addLayer(
                 {
-                    id: 'adders-fill',
+                    id: 'priority-areas-fill',
                     type: 'fill',
-                    source: 'adders',
-                    'source-layer': 'adders_dissolved-2x5v3w',
+                    source: 'priority-areas',
+                    'source-layer': 'priority_boundaries-6gvqlb',
                     paint: {
                         'fill-color': colors.primary
                     }
                 }
             )
             map.moveLayer('choropleth-fill', 'waterway');
-            map.setPaintProperty('adders-fill', 'fill-opacity', [
+            map.setPaintProperty('priority-areas-fill', 'fill-opacity', [
                 'interpolate',
                 ['exponential', 0.5],
                 ['zoom'],
@@ -133,7 +134,7 @@
                 props.resultZoom,
                 0.1
             ])
-            map.setPaintProperty('adders-shadow', 'line-width', [
+            map.setPaintProperty('priority-areas-shadow', 'line-width', [
                 'interpolate',
                 ['linear', 0.5],
                 ['zoom'],
