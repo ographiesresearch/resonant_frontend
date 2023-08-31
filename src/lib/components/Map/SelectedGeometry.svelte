@@ -15,7 +15,8 @@
                 return d.json();
             })
             .then((d) => {
-                return (d.features.length > 0) ? d.features[0].properties : undefined;
+                d = (d.features.length > 0) ? d.features[0].properties : undefined;
+                return d;
             })
             .then((d) => {
                 selected = d;
