@@ -67,12 +67,12 @@ $: add = (gcResult) ? parseContext(gcResult) : undefined;
                 <!-- <div class="card-header-title is-justify-content-space-between">
                     <button class="button is-right is-danger" on:click={closeInfo}>Close</button>
                 </div> -->
-                <div class="title has-text-white">
+                <div>
                     {#if add.address}
-                        <p>{add.address}</p>
+                        <p class="title has-text-white">{add.address}</p>
                     {/if}
                     {#if add.muni}
-                        <p>{add.muni}, {#if add.state}{add.state}{/if} {#if add.zip}{add.zip}{/if}</p>
+                        <p class="has-text-white {(add.address) ? "subtitle" : "title"}">{add.muni}, {#if add.state}{add.state}{/if} {#if add.zip}{add.zip}{/if}</p>
                     {/if}
                 </div>
         </div>
