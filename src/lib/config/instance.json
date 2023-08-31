@@ -33,11 +33,11 @@
             [-67,72]
         ],
         "resultZoom": 10,
-        "singleMarker": true,
+        "resultFlyDur": 2000,
         "projection": "globe",
         "init": {
             "lngLat": [-120, 42],
-            "zoom": [1.8, 3],
+            "zoom": [3, 4],
             "zoomDur": 3000
         }
     }

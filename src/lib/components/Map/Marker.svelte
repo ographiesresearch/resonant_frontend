@@ -1,7 +1,7 @@
 <script>
     import { getContext } from 'svelte';
     import { mapbox, key } from '$lib/scripts/utils';
-    import site_data from '$lib/config/instance.json';
+    import colors from '$lib/styles/app.module.scss';
 
     const { getMap } = getContext(key)
     const map = getMap()
@@ -13,7 +13,7 @@
         (marker !== undefined) ? marker.remove() : null;
         if (ll !== undefined) {
             marker = new mapbox.Marker({
-                    color: site_data.primaryColor
+                    color: colors.primary
                 }).setLngLat(ll);
             marker.addTo(map);
         }
