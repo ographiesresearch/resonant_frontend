@@ -36,14 +36,11 @@ html {
   filter: drop-shadow(.18rem .18rem 0rem $danger-dark);
 }
 
-$backgrounds: (solar: 'https://images.squarespace-cdn.com/content/v1/56fbfd2d37013b142d331d72/1532030351639-5C2Q8FQP0YTY8E5XUUO1/Ephiphany+School+1.jpg');
-@each $key, $image in $backgrounds {
-  .hero-#{$key}, .page-bg {
-    @extend .hero;
-    background-image: url(#{$image});
-    background-size: cover;
-    background-position: center;
-  }
+.hero-bg-image, .page-bg {
+  @extend .hero;
+  background-image: url(#{$background-image});
+  background-size: cover;
+  background-position: center;
 }
 
 #map {

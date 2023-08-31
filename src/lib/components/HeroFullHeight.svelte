@@ -14,7 +14,7 @@
 </script>
 
 {#if loadState}
-<section transition:fade = {{ duration: 1000}} class="hero hero-solar is-fullheight-with-navbar">
+<section transition:fade = {{ duration: 1000}} class="hero hero-bg-image is-fullheight-with-navbar">
     <div class="container">
         <div class="hero-body">
             <div class="">
