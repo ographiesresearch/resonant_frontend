@@ -2,7 +2,7 @@
     export let title;
     // export let date
 </script>
-<section class="page-bg-image">
+<section class="hero-bg-image">
 <div class = "container">
     <h1 class="title">{title}</h1>
     <hr>
