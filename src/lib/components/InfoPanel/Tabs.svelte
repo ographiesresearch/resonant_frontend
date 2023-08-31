@@ -43,7 +43,7 @@
         <span class="has-text-white">{@html item.text}</span>
         <div class="block mt-1">
             <button on:click={toggleSource} class="button is-size-7
-            {item.true ? 'is-success is-light' : 'is-warning is-light'}">Source</button>
+            {item.true ? 'is-success is-light' : 'is-danger is-light'}">Source</button>
         </div>
         {#if source}
         <div transition:slide = {{ duration: 100}}>
