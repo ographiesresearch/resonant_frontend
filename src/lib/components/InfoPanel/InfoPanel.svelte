@@ -66,9 +66,6 @@ $: add = (gcResult) ? parseContext(gcResult) : undefined;
             <button on:click={closeInfo} class="button span tag icon-text is-danger shadow is-medium block">
                 <span>Close</span>
             </button>
-                <!-- <div class="card-header-title is-justify-content-space-between">
-                    <button class="button is-right is-danger" on:click={closeInfo}>Close</button>
-                </div> -->
                 <div>
                     {#if add?.address}
                         <p class="title has-text-white">{add.address}</p>
