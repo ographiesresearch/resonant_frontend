@@ -29,8 +29,10 @@
     function parseContext(gcr){
         let address;
         if ('place_type' in gcr) {
-            if (gcr.place_type.includes("poi")) {
+            if (gcr.place_type.includes("poi") & 'address' in gcr) {
                 address = gcr.address;
+            } else if (gcr.place_type.includes("poi")) {
+                address = gcr.text;
             } else if (gcr.place_type.includes("address")) {
                 if (gcr.address !== null ) {
                     address = gcr.address.concat(" ", gcr.text);
@@ -45,7 +47,7 @@
         }
         let c = gcr.context;
         return {
-            "address": address,
+            "address": (address) ? address : null,
             "muni": contextSearch(c , "place"),
             "state": contextSearch(c, "region"),
             "county": contextSearch(c, "district"),
@@ -68,10 +70,10 @@ $: add = (gcResult) ? parseContext(gcResult) : undefined;
                     <button class="button is-right is-danger" on:click={closeInfo}>Close</button>
                 </div> -->
                 <div>
-                    {#if add.address}
+                    {#if add?.address}
                         <p class="title has-text-white">{add.address}</p>
                     {/if}
-                    {#if add.muni}
+                    {#if add?.muni}
                         <p class="has-text-white {(add.address) ? "subtitle" : "title"}">{add.muni}, {#if add.state}{add.state}{/if} {#if add.zip}{add.zip}{/if}</p>
                     {/if}
                 </div>

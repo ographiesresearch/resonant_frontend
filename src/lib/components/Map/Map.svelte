@@ -189,7 +189,9 @@
         <SelectedGeometry bind:selected bind:lngLat bind:loadingState/>
     {/if}
 </div>
+{#if marker }
 <InfoPanel bind:marker bind:gcResult bind:selected/>
+{/if}
 
 <style>
     .non-interactive {
