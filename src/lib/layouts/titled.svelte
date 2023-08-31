@@ -1,13 +1,11 @@
 <script>
-    export let title;
+    import HeroPage from '$lib/components/HeroPage.svelte';
     // export let date
 </script>
-<section class="hero-bg-image">
-<div class = "container">
-    <h1 class="title">{title}</h1>
-    <hr>
-    <div class = "section">
+<HeroPage>
+    <!-- <h1 class="title">{title}</h1> -->
+    <!-- <hr> -->
+    <div class = "has-background-dark p-3 has-text-white">
         <slot />
     </div>
-</div>
-</section>
+</HeroPage>

@@ -3,11 +3,11 @@ title: "Home"
 ---
 
 <script>
-    import HeroFullHeight from '$lib/components/HeroFullHeight.svelte';
+    import HeroHome from '$lib/components/HeroHome.svelte';
     import site_data from '$lib/config/instance.json';
 </script>
 
-<HeroFullHeight 
+<HeroHome 
     title={site_data.title} 
     subtitle={site_data.subtitle} 
     description={site_data.description}

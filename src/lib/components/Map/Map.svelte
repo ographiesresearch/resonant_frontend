@@ -24,11 +24,10 @@
     let container;
     let map;
 
-    // let lngLat;
-    let gcResult;
-    let selected;
-    let marker;
-    let lngLat;
+    let gcResult = undefined;
+    let selected = undefined;
+    let marker = undefined;
+    let lngLat = undefined;
     
     let loadingState = true;
 
