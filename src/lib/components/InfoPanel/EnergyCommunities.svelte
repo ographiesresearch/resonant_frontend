@@ -1,6 +1,6 @@
 <script>
     import Tabs from '$lib/components/InfoPanel/Tabs.svelte';
-    import Card from '$lib/components/InfoPanel/Card.svelte';
+    import CriterionCard from '$lib/components/InfoPanel/CriterionCard.svelte';
     export let data;
     
     let mine_text;
@@ -52,6 +52,6 @@
             },
         ]
 </script>
-<Card {status} title="Energy Communities">
+<CriterionCard {status} title="Energy Communities">
     <Tabs {items}/>
-</Card>
+</CriterionCard>

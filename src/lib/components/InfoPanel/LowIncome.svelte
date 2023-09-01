@@ -1,6 +1,6 @@
 <script>
     import Tabs from '$lib/components/InfoPanel/Tabs.svelte';
-    import Card from '$lib/components/InfoPanel/Card.svelte';
+    import CriterionCard from '$lib/components/InfoPanel/CriterionCard.svelte';
     import { slide } from 'svelte/transition';
     export let data;
 
@@ -98,7 +98,7 @@
         ]
 </script>
 
-<Card {status} {priority} title="Low-Income Community or Native Land">
+<CriterionCard {status} {priority} title="Low-Income Community or Native Land">
     <Tabs {items}>
         {#if priority}
         <div transition:slide = {{ duration: 400}} class="block box has-background-primary">
@@ -108,4 +108,4 @@
         </div>
         {/if}
     </Tabs>
-</Card>
+</CriterionCard>

@@ -3,10 +3,10 @@
     export let title;
     export let priority = false;
     import IconStatus from '$lib/components/IconStatus.svelte';
-    import { fade } from 'svelte/transition';
+    import Card from '$lib/components/Card.svelte';
 </script>
 
-<div transition:fade = {{ duration: 600}} class="box block has-background-{status ? 'success' : 'danger'} shadow {priority && status ? 'priority' : null}">
+<Card {status} {priority} {title}>
     <span class="tag icon-text is-{status ? 'success' : 'danger'} shadow is-small block">
         <IconStatus {status} size='is-small'/>
         {#if status}
@@ -24,13 +24,4 @@
         {title}
     </p>
     <slot/>
-</div>
-
-<style lang="scss">
-.priority {
-    outline-style: solid;
-    outline-width: 0.3rem;
-    outline-offset: -0.3rem;
-    outline-color: $primary;
-}
-</style>
+</Card>

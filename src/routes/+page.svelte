@@ -1,7 +1,3 @@
----
-title: "Home"
----
-
 <script>
     import HeroHome from '$lib/components/HeroHome.svelte';
     import site_data from '$lib/config/instance.json';
