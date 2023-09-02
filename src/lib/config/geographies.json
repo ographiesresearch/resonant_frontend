@@ -1,0 +1,18 @@
+{
+    "ct_2020": {
+        "name": "Census Tract",
+        "vintage": 2020
+    },
+    "ct_2010": {
+        "name": "Census Tract",
+        "vintage": 2010
+    },
+    "cty_2020": {
+        "name": "County",
+        "vintage": 2020
+    },
+    "native_2020": {
+        "name": " American Indian/Alaska Native/Native Hawaiian Area",
+        "vintage": 2020
+    }
+}
