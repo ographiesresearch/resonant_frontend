@@ -26,7 +26,7 @@
 </script>
 
 {#if site_data.licensing && site_data.repos}
-<p class="subtitle p-3 mt-1 has-background-dark has-text-primary is-size-2 box shadow">
+<p class="subtitle p-3 mt-1 has-background-dark has-text-primary is-size-2 is-size-3-mobile box shadow">
     Code Availability
 </p>
 <Card>
@@ -59,7 +59,7 @@
     </div>
 </Card>
 {/if}
-<p class="subtitle p-3 mt-1 has-background-dark has-text-primary is-size-2 box shadow">
+<p class="subtitle p-3 mt-1 has-background-dark has-text-primary is-size-2 is-size-3-mobile box shadow">
     Data Dictionary
 </p>
 {#each vars as v}

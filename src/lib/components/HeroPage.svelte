@@ -15,12 +15,12 @@
         <div class="hero-body">
             <div class="">
                 {#if title}
-                <p transition:slide = {{ duration: 800}} class="title p-3 box has-background-dark has-text-primary is-size-1 shadow">
+                <p transition:slide = {{ duration: 800}} class="title p-3 box has-background-dark has-text-primary is-size-1 is-size-2-mobile shadow">
                     {title}
                 </p>
                 {/if}
                 {#if subtitle}
-                <p class="subtitle p-3 mt-1 box has-background-dark has-text-primary is-size-2 shadow">
+                <p class="subtitle p-3 mt-1 box has-background-dark has-text-primary is-size-2 is-size-3-mobile shadow">
                     {subtitle}
                 </p>
                 {/if}
