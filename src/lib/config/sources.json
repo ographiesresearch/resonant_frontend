@@ -1,0 +1,33 @@
+{
+    
+    "choropleth": {
+        "source": "mapbox://ericrobskyhuntley.b3m8uynm",
+        "layer": "resonant_overlay-3wot0h",
+        "mapStyles": [{
+            "id": "choropleth-fill",
+            "type": "fill",
+            "filter": [">", "how_many", 0],
+            "paint": {
+                "fill-opacity": {
+                    "property": "how_many",
+                    "stops": [[1, 0.5], [2, 1]]
+                },
+                "fill-color": "success",
+                "fill-outline-color": "white"
+            }
+        }]
+    },
+    "priority": {
+        "source": "mapbox://ericrobskyhuntley.02373tha",
+        "layer": "priority_boundaries-6gvqlb",
+        "mapStyles": [{
+            "id": "priority_boundaries-outline",
+            "type": "line",
+            "paint": {
+                "line-color": "primary",
+                "line-width": 2
+            },
+            "shadow": true
+        }]
+    }
+}

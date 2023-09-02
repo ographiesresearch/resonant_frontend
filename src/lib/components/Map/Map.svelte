@@ -8,6 +8,7 @@
     import RippleLoader from '$lib/components/RippleLoader.svelte';
     
     import colors from '$lib/styles/app.module.scss';
+    import sources from '$lib/config/sources.json';
 
     import 'mapbox-gl/dist/mapbox-gl.css';
 
@@ -43,6 +44,67 @@
             essential: true
         });
     }
+    
+    function colorPicker(color) {
+        if (color === "primary") {
+            color = colors.primary;
+        } else if (color === "success") {
+            color = colors.success;
+        } else if (color === "danger") {
+            color = colors.danger;
+        }
+        return color;
+    }
+
+    function addSources(sources) {
+        Object.entries(sources).forEach((layer) => {
+            const [name, p] = layer;
+            map.addSource(name, {
+                type: 'vector',
+                url: p.source
+            });
+            p.mapStyles.forEach((style) => {
+                style.source = name;
+                style["source-layer"] = p.layer;
+                if (style.type === "line") {
+                    style.paint["line-color"] = colorPicker(style.paint["line-color"])
+                } else if (style.type === "fill") {
+                    style.paint["fill-color"] = colorPicker(style.paint["fill-color"])
+                }
+                if (style?.shadow) {
+                    map.addLayer({
+                        id: style.id.concat("-shadow"),
+                        source: name,
+                        "source-layer": p.layer,
+                        type: "line",
+                        "line-join": "bevel",
+                        "line-cap": "round",
+                        paint: {
+                            "line-color": "#000000",
+                            "line-opacity": 1,
+                            "line-width": 2,
+                            "line-translate": [2,2]
+                        }
+                    })
+                    map.setPaintProperty(
+                        style.id.concat("-shadow"), 
+                        'line-width', [
+                            'interpolate',
+                            ['linear', 0.5],
+                            ['zoom'],
+                            props.init.zoom[1],
+                            1,
+                            props.resultZoom,
+                            3
+                    ])
+                }
+                map.addLayer(
+                    style,
+                    "waterway"
+                )
+            })
+        });
+    }
 
     $: (lngLat) ? flyToLngLat(lngLat) : null;
 
@@ -59,89 +121,7 @@
         map = new mapbox.Map(mapOptions);
         
         map.on ('load', () => {
-            map.addSource('priority-areas', {
-                type: 'vector',
-                url: 'mapbox://ericrobskyhuntley.02373tha'
-            });
-            map.addSource('choropleth', {
-                type: 'vector',
-                url: 'mapbox://ericrobskyhuntley.b3m8uynm'
-            })
-            map.addLayer(
-                {
-                    id: 'choropleth-fill',
-                    type: 'fill',
-                    source: 'choropleth',
-                    'source-layer': 'resonant_overlay-3wot0h',
-                    'filter': ['>', 'how_many', 0],
-                    paint: {
-                        'fill-opacity': {
-                            property: 'how_many',
-                            stops: [[1, 0.5], [2, 1]]
-                        },
-                        'fill-color': colors.success,
-                        'fill-outline-color': 'white',
-                    }
-                }
-            )
-            map.addLayer(
-                {
-                    id: "priority-areas-shadow",
-                    source: "priority-areas",
-                    "source-layer": "priority_boundaries-6gvqlb",
-                    type: "line",
-                    "line-join": "bevel",
-                    "line-cap": "round",
-                    paint: {
-                        "line-color": "#000000",
-                        "line-opacity": 1,
-                        "line-width": 2,
-                        "line-translate": [2,2]
-                    }
-                }
-            )
-            map.addLayer(
-                {
-                    id: 'priority-areas-outlines',
-                    source: 'priority-areas',
-                    'source-layer': 'priority_boundaries-6gvqlb',
-                    type: 'line',
-                    paint: {
-                        'line-color': colors.primary,
-                        'line-width': 2,
-                    }
-                }
-            )
-            map.addLayer(
-                {
-                    id: 'priority-areas-fill',
-                    type: 'fill',
-                    source: 'priority-areas',
-                    'source-layer': 'priority_boundaries-6gvqlb',
-                    paint: {
-                        'fill-color': colors.primary
-                    }
-                }
-            )
-            map.moveLayer('choropleth-fill', 'waterway');
-            map.setPaintProperty('priority-areas-fill', 'fill-opacity', [
-                'interpolate',
-                ['exponential', 0.5],
-                ['zoom'],
-                props.init.zoom[1],
-                0,
-                props.resultZoom,
-                0.1
-            ])
-            map.setPaintProperty('priority-areas-shadow', 'line-width', [
-                'interpolate',
-                ['linear', 0.5],
-                ['zoom'],
-                props.init.zoom[1],
-                1,
-                props.resultZoom,
-                3
-            ])
+            addSources(sources);
         })
         map.once('zoomend', () => {
             loadingState = !loadingState
