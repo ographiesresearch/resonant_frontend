@@ -1,8 +1,9 @@
 <script>
     import HeroPage from '$lib/components/HeroPage.svelte';
-    // export let date
+    let title = "Documentation";
+    let background = false;
 </script>
 
-<HeroPage>
+<HeroPage {title} {background}>
     <slot/>
 </HeroPage>

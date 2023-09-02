@@ -4,15 +4,6 @@
     import { fade } from 'svelte/transition';
 </script>
 
-<div transition:fade = {{ duration: 600}} class="box block has-background-{status ? 'success' : 'danger'} shadow {priority && status ? 'priority' : null}">
+<div transition:fade = {{ duration: 600}} class="box block shadow {(status === true) ? 'has-background-success' : null } {(status === false) ? 'has-background-danger' : null } {(status === undefined) ? 'has-background-grey-darker' : null } {priority && status ? 'priority' : null}">
     <slot/>
 </div>
-
-<style lang="scss">
-.priority {
-    outline-style: solid;
-    outline-width: 0.3rem;
-    outline-offset: -0.3rem;
-    outline-color: $primary;
-}
-</style>

@@ -1,0 +1,73 @@
+{ 
+    "pov_rat": {
+        "name": "Poverty Rate",
+        "geographies": ["ct_2020"],
+        "source": "American Community Survey",
+        "dates": "2016-2020",
+        "tables": [{
+            "id": "B17001",
+            "name": "Poverty Status by Sex by Age",
+            "url": "https://api.census.gov/data/2020/acs/acs5/groups/B17001"
+        }],
+        "description": "The poverty rate is defined as income in the past 12 months below poverty level over the population for whom poverty status is determined. Qualifying census tracts have poverty rates of `at least 20%`.",
+        "citation": "U.S. Census Bureau. 2016-2020. 'Poverty Status by Sex by Age (B17001).' _American Community Survey 5-Year Estimates_."
+    },
+    "inc_rat": {
+        "name": "Income Ratio",
+        "geographies": ["ct_2020"],
+        "source": "American Community Survey",
+        "dates": "2016-2020",
+        "tables": [{
+            "id": "B19113",
+            "name": "Median Family Income in the Past 12 Months",
+            "url": "https://api.census.gov/data/2020/acs/acs5/groups/B19113.html"
+        }],
+        "description": "The income ratio is defined as median family income in the past 12 months divided by the larger of the state and the Metropolitan Statistical Area MFIs. Qualifying census tracts have poverty rates of `less than 80%`.",
+        "citation": "U.S. Census Bureau. 2016-2020. 'Median Family Income (B19113).' _American Community Survey 5-Year Estimates_."
+    },
+    "native_lands": {
+        "name": "Native Lands",
+        "geographies": ["native_2020"],
+        "source": "U.S. Census Bureau",
+        "dates": "2020",
+        "url": "https://www.census.gov/cgi-bin/geo/shapefiles/index.php?year=2020&layergroup=American+Indian+Area+Geography",
+        "description": "We use MTFCC codes and, in limited cases, Tribal names to identify lands. Specifically, we use Federal/State American Indian Reservation (AIR) or Off-Reservation Trust Land (`G2100`), Federal AIR/ORTL Joint-Use Area (`G2170`), Hawaiian Home Land (`G2120`), and Alaska Native Village Statistical Area (`G2170`). Furthermore, given recent jurisprudence in McGirt v. Oklahoma, the OTSAs (`G2140` and `G2170`) of the Cherokee, Chickasaw, Choctaw, Muscogee (Creek), and Seminole Nations are treated as identical to American Indian Reservations.",
+        "citation": "U.S. Census Bureau. 2016-2020. 'Median Family Income (B19113).' _American Community Survey 5-Year Estimates_."
+    },
+    "ffe": {
+        "name": "Fossil Fuel Employment",
+        "geographies": ["ct_2020"],
+        "source": "U.S. Department of Energy, National Energy Technology Laboratory, Interagency Working Group on Coal & Power Plant Communities & Economic Revitalization, U.S. Department of the Treasury",
+        "dates": "2022",
+        "url": "https://edx.netl.doe.gov/dataset/ira-energy-community-data-layers",
+        "description": "Qualifying sites are in Metropolitan Statistical Areas or Non-Metropolitan Statistical Areas that have (or have had at any time after 2009): 1) 0.17% or greater direct employment or 25% or greater local tax revenues related to the extraction, processing, transport, or storage of coal, oil, or natural gas; and 2) an unemployment rate at or above the national average unemployment rate for the previous year.",
+        "citation": "U.S. Department of Energy (DOE), National Energy Technology Laboratory (NETL), Interagency Working Group on Coal & Power Plant Communities & Economic Revitalization (IWG), U.S. Department of the Treasury. 2023. IRA Energy Community Data Layers. April 3. https://edx.netl.doe.gov/dataset/ira-energy-community-data-layers."
+    },
+    "coal_closure": {
+        "name": "Coal Closure Communities",
+        "geographies": ["ct_2020"],
+        "source": "U.S. Department of Energy, National Energy Technology Laboratory, Interagency Working Group on Coal & Power Plant Communities & Economic Revitalization, U.S. Department of the Treasury",
+        "dates": "2022",
+        "url": "https://edx.netl.doe.gov/dataset/ira-energy-community-data-layers",
+        "description": "These are census tracts in which 1) a coal mine has closed after 1999; or 2) a coal-fired electric generating unit has been retired after 2009.",
+        "citation": "U.S. Department of Energy (DOE), National Energy Technology Laboratory (NETL), Interagency Working Group on Coal & Power Plant Communities & Economic Revitalization (IWG), U.S. Department of the Treasury. 2023. IRA Energy Community Data Layers. April 3. https://edx.netl.doe.gov/dataset/ira-energy-community-data-layers."
+    },
+    "nrg_disadv": {
+        "name": "Energy Disadvantage",
+        "geographies": ["ct_2010"],
+        "source": "Council on Environmental Quality",
+        "dates": "2022",
+        "url": "https://screeningtool.geoplatform.gov/en/downloads",
+        "description": "The Climate and Economic Justice Screening Tool identifies communities (i.e., census tracts) as energy disadvantaged if they are at or above the 90th percentile for either 1) energy costs or 2) PM2.5 exposure. They must also be at or above the 65th percentile for low-income population",
+        "citation": "Council on Environmental Quality. 2022. Climate and Economic Justice Screening Tool</em>.  Nov 22. https://screeningtool.geoplatform.gov/en/downloads"
+    },
+    "ppc": {
+        "name": "Persistent Poverty County",
+        "geographies": ["cty_2020"],
+        "source": "U.S. Department of Agriculture Economic Research Service.",
+        "dates": "2015",
+        "url": "https://www.ers.usda.gov/topics/rural-economy-population/rural-poverty-well-being/#geography",
+        "description": "Persistent Poverty Counties, or PPCs, are one of the [county typologies](https://www.ers.usda.gov/data-products/county-typology-codes/) developed by the Economic Research Service of the USDA. These are defined as counties in which '20 percent or more of their populations were living in poverty based on the 1980, 1990, and 2000 decennial censuses and 2007-11 ACS 5-year estimates.'",
+        "citation": "U.S. Department of Agriculture Economic Research Service. 2023. _Poverty Area Measures_. https://www.ers.usda.gov/data-products/poverty-area-measures/."
+    }
+}

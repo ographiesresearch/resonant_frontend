@@ -25,3 +25,12 @@
     </p>
     <slot/>
 </Card>
+
+<style lang="scss">
+    .priority {
+        outline-style: solid;
+        outline-width: 0.3rem;
+        outline-offset: -0.3rem;
+        outline-color: $primary;
+    }
+</style>

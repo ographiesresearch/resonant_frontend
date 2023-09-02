@@ -1,7 +1,6 @@
 <script>
     function handleClick() {
       document.getElementById("navMenu").classList.toggle('is-active');
-      document.getElementById("navbar-menu").classList.toggle('is-active');
     }
 </script>
 

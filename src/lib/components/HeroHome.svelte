@@ -6,27 +6,22 @@
     export let authors;
     export let orgs;
 
+    export let background = true;
     export let title = "Title";
     export let subtitle = "Longer description";
     export let description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 </script>
 
-<HeroPage>
-    <p transition:slide = {{ duration: 800}} class="title p-3 has-background-dark has-text-primary is-size-1 shadow">
-        {title}
-    </p>
-    <p class="subtitle p-3 mt-1 has-background-dark has-text-primary is-size-2 shadow">
-        {subtitle}
-    </p>
+<HeroPage {title} {background} {subtitle}>
     <div class="columns">
         <div class="column">
-            <p class="p-3 mb-2 has-background-dark has-text-white shadow">
+            <p class="p-3 box mb-2 has-background-dark has-text-white shadow">
                 {description}
             </p>
             <WelcomeButton/>
         </div>
         <div class="column">
-            <div class="has-background-dark p-3 has-text-white mb-2 shadow">
+            <div class="box has-background-dark p-3 has-text-white mb-2 shadow">
                 <span class="is-italic">This tool is provided by...</span>
                 <ul>
                     {#each orgs as org}
@@ -34,7 +29,7 @@
                     {/each}
                 </ul>
             </div>
-            <div class="has-background-dark p-3 has-text-white shadow">
+            <div class="box has-background-dark p-3 has-text-white shadow">
                 <span class="is-italic">Built by...</span>
                 <ul>
                     {#each authors as author}
