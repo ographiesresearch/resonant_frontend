@@ -1,32 +1,64 @@
 <script>
     import {marked} from 'marked';
+    import { onMount } from 'svelte';
+
     import Card from '$lib/components/Card.svelte';
+    import GitHubIcon from '$lib/components/GitHubIcon.svelte';
     import variables from '$lib/config/variables.json';
+    import site_data from '$lib/config/instance.json';
     import geographies from '$lib/config/geographies.json';
-    let vars = []
+    let vars = [];
+
     Object.entries(variables).forEach((v) => {
         let d = v[1]
-        d.description = marked(d.description);
         let geos = [];
-        console.log(d.geographies);
-        d.geographies.forEach((geo) => {
-            geos.push(geographies[geo]);
-        });
-        d.geographies = geos;
+        d.description = marked(d.description);
+        if(typeof(d.geographies[0]) === "string") {
+            d.geographies.forEach((g) => {
+                geos.push(geographies[g]);
+            });
+            d.geographies = geos;
+        } 
         d.citation = marked(d.citation);
         d.description = marked(d.description);
         vars.push(d);
     });
 </script>
 
+{#if site_data.licensing && site_data.repos}
 <p class="subtitle p-3 mt-1 has-background-dark has-text-primary is-size-2 box shadow">
     Code Availability
 </p>
-
 <Card>
-    <p class="has-text-white">The income ratio is defined as median family income in the past 12 months divided by the larger of the state and the Metropolitan Statistical Area MFIs.</p>
+    <div class="has-text-white">
+    {site_data.licensing}
+    {#if site_data.repos}
+    <div class="mt-2 columns">
+    {#each site_data.repos as repo}
+    <div class="column repo">
+        <div class="block box shadow">
+            <span class="icon-text">
+                <span class="icon mr-5 is-medium">
+                    <GitHubIcon/>
+                </span>
+                <span>
+                    <div class="has-text-weight-bold">
+                        <a href="{repo.url}">{repo.name}</a>
+                    </div>
+                    <div>
+                        <a href="https://github.com/{repo.owner}/">@{repo.owner}</a>
+                    </div>
+                </span>
+            </span>
+            <div>{repo.description}</div>
+        </div>
+    </div>
+    {/each}
+    </div>
+    {/if}
+    </div>
 </Card>
-
+{/if}
 <p class="subtitle p-3 mt-1 has-background-dark has-text-primary is-size-2 box shadow">
     Data Dictionary
 </p>
