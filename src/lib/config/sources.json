@@ -1,8 +1,9 @@
 {
     
     "choropleth": {
-        "source": "mapbox://ericrobskyhuntley.b3m8uynm",
+        "source": "ericrobskyhuntley.b3m8uynm",
         "layer": "resonant_overlay-3wot0h",
+        "queryLayer": true,
         "mapStyles": [{
             "id": "choropleth-fill",
             "type": "fill",
@@ -18,7 +19,7 @@
         }]
     },
     "priority": {
-        "source": "mapbox://ericrobskyhuntley.02373tha",
+        "source": "ericrobskyhuntley.02373tha",
         "layer": "priority_boundaries-6gvqlb",
         "mapStyles": [{
             "id": "priority_boundaries-outline",

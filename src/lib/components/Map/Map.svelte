@@ -61,7 +61,7 @@
             const [name, p] = layer;
             map.addSource(name, {
                 type: 'vector',
-                url: p.source
+                url: 'mapbox://'.concat(p.source)
             });
             p.mapStyles.forEach((style) => {
                 style.source = name;
