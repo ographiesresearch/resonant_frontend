@@ -78,13 +78,13 @@ $: nrg_comm_pct = (selected?.nrg_comm) ? 10 : 0;
                     <p class="{(add.address) ? "subtitle" : "title"}">{add.muni}, {#if add.state}{add.state}{/if} {#if add.zip}{add.zip}{/if}</p>
                 {/if}
                 <div class="buttons has-text-white">
-                <span class="button icon-text shadow block
+                <span class="button-passive button icon-text shadow block
                     {selected?.li_native ? 'has-background-success' : 'has-background-danger'}
                     {selected?.priority ? 'priority' : null}">
                         <IconStatus status={selected?.li_native}/>
                         <span>Low-Income or Native Land</span>
                 </span>
-                <span class="button icon-text shadow block
+                <span class="button-passive button icon-text shadow block
                     {selected?.nrg_comm ? 'has-background-success' : 'has-background-danger'}">
                         <IconStatus status={selected?.nrg_comm}/>
                         <span>Energy Community</span>
@@ -124,5 +124,8 @@ $: nrg_comm_pct = (selected?.nrg_comm) ? 10 : 0;
         outline-width: 0.3rem;
         outline-offset: -0.3rem;
         outline-color: $primary;
+    }
+    .button-passive {
+        pointer-events: none;
     }
 </style>
