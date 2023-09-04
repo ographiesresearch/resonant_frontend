@@ -87,7 +87,7 @@
                             "line-translate": [2,2]
                         }
                     },
-                    "waterway"
+                    "land-structure-polygon"
                     )
                     map.setPaintProperty(
                         style.id.concat("-shadow"), 
@@ -103,7 +103,7 @@
                 }
                 map.addLayer(
                     style,
-                    "waterway"
+                    "land-structure-polygon"
                 )
             })
         });
