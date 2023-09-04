@@ -14,7 +14,6 @@
                 queryLayer = p.source
             }
         })
-        console.log(queryLayer);
         const endpoint = `https://api.mapbox.com/v4/${queryLayer}/tilequery/`;
         const f = 'json'
         const query = `${endpoint}${ll.lng},${ll.lat}.${f}?access_token=${mapbox.accessToken}`;

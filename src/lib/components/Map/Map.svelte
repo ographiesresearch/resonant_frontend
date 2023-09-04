@@ -4,6 +4,7 @@
     import ReverseGeocoder from '$lib/components/Map/Geocoders/Reverse.svelte';
     import SelectedGeometry from '$lib/components/Map/SelectedGeometry.svelte';
     import Marker from '$lib/components/Map/Marker.svelte';
+    import Legend from '$lib/components/Map/Legend.svelte';
     import InfoPanel from '$lib/components/InfoPanel/InfoPanel.svelte';
     import RippleLoader from '$lib/components/RippleLoader.svelte';
     
@@ -85,7 +86,9 @@
                             "line-width": 2,
                             "line-translate": [2,2]
                         }
-                    })
+                    },
+                    "waterway"
+                    )
                     map.setPaintProperty(
                         style.id.concat("-shadow"), 
                         'line-width', [
@@ -172,6 +175,7 @@
         <ReverseGeocoder bind:lngLat bind:gcResult />
         <ForwardGeocoder bind:lngLat bind:gcResult bind:selected />
         <SelectedGeometry bind:selected bind:lngLat bind:loadingState/>
+        <Legend bind:marker title="Program Eligibility"/>
     {/if}
 </div>
 {#if marker }

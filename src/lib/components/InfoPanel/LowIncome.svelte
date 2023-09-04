@@ -24,14 +24,14 @@
     }
     
     let tribal_text;
-    $: if (data?.name_long !== "" && data?.name_long !== undefined) {
+    $: if (data?.native_lan === 1) {
         tribal_text = `This site is located on U.S. Government-recognized Native Land, specificially, <code>${data.name_long}</code>.`
     } else {
         tribal_text = `This site is not located on U.S. Government-recognized Native Land.`
     }
     
     $: status = (data?.li_native === 1) ? true : false;
-    $: priority = (data?.adder === 1) ? true : false;
+    $: priority = (data?.priority === 1) ? true : false;
     
     $: items = [
             {
@@ -48,11 +48,12 @@
             },
             {
                 desc: "Recognized Native Land",
-                true: (data?.name_long !== "" && data?.name_long !== undefined) ? true : false,
+                true: (data?.native_lan === 1) ? true : false,
                 text: tribal_text,
                 citation: 'U.S. Census Bureau. 2020. <em>American Indian/Alaska Native/Native Hawaiian Areas</em>. Downloaded using the <code>tigris</code> R package.'
             },
         ]
+        $: console.log(data);
 
         let pp_text;
         $: if (data?.pp === 1) {
@@ -99,7 +100,7 @@
 </script>
 
 <CriterionCard {status} {priority} title="Low-Income Community or Native Land">
-    <Tabs {items}>
+    <Tabs {items} small=true>
         {#if priority}
         <div transition:slide = {{ duration: 400}} class="block box has-background-primary">
             <p class="subtitle has-text-white">Priority Criteria</p>

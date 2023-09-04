@@ -1,6 +1,7 @@
 <script>
     import LowIncome from '$lib/components/InfoPanel/LowIncome.svelte';
     import EnergyCommunities from '$lib/components/InfoPanel/EnergyCommunities.svelte';
+    import Tabs from '$lib/components/InfoPanel/Tabs.svelte';
 
     import { slide } from 'svelte/transition';
 
@@ -10,6 +11,7 @@
 
     function closeInfo() {
         marker.remove();
+        marker = undefined;
         add = undefined;
         selected = undefined;
     }
@@ -57,23 +59,42 @@
 
 $: add = (gcResult) ? parseContext(gcResult) : undefined;
 
+$: items = [
+            {
+                desc: "Low-Income or Native Land",
+                true: true
+                // true: (data?.pov_rat_hi === 1) ? true : false
+            },
+            {
+                desc: "Energy Communities",
+                true: true
+                // true: (data?.inc_rat_lo === 1) ? true : false
+            },
+            {
+                desc: "Priority",
+                true: true
+                // true: (data?.name_long !== "" && data?.name_long !== undefined) ? true : false
+            },
+        ]
+
 </script>
 
 {#if add || selected }
 <div class="info-box columns p-3">
     <div transition:slide = {{ duration: 500, axis: 'y'}} class="column is-offset-three-fifths is-two-fifths">
-        <div id="address" class="box block has-background-grey-darker shadow sticky-top">
+        <div id="address" class="box block shadow sticky-top">
             <button on:click={closeInfo} class="button span tag icon-text is-danger shadow is-medium block">
                 <span>Close</span>
             </button>
                 <div>
-                    {#if add?.address}
-                        <p class="title has-text-white">{add.address}</p>
-                    {/if}
-                    {#if add?.muni}
-                        <p class="has-text-white {(add.address) ? "subtitle" : "title"}">{add.muni}, {#if add.state}{add.state}{/if} {#if add.zip}{add.zip}{/if}</p>
-                    {/if}
+                {#if add?.address}
+                    <p class="title">{add.address}</p>
+                {/if}
+                {#if add?.muni}
+                    <p class="{(add.address) ? "subtitle" : "title"}">{add.muni}, {#if add.state}{add.state}{/if} {#if add.zip}{add.zip}{/if}</p>
+                {/if}
                 </div>
+                <!-- <Tabs {items}/> -->
         </div>
         {#if selected}
         <div>

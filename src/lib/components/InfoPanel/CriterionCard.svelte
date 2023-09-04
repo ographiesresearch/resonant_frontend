@@ -6,7 +6,7 @@
     import Card from '$lib/components/Card.svelte';
 </script>
 
-<Card {status} {priority} {title}>
+<Card {status} {priority}>
     <span class="tag icon-text is-{status ? 'success' : 'danger'} shadow is-small block">
         <IconStatus {status} size='is-small'/>
         {#if status}

@@ -32,7 +32,7 @@ html {
   box-sizing: border-box;
 }
 
-.shadow {
+.shadow, .mapboxgl-ctrl-geocoder {
   filter: drop-shadow(.25rem .25rem 0rem $danger-dark);
 }
 

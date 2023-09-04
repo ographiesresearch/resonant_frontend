@@ -36,6 +36,7 @@
     {/each}
 </div>
 {#each items as item}
+    {#if (item?.desc && item?.citation)}
     {#if (activeTab == item.desc && descState)}
     <div transition:slide = {{ duration: 200}} 
     class="block box shadow desc-text-box
@@ -51,6 +52,7 @@
         </div>
         {/if}
     </div>
+    {/if}
     {/if}
 {/each}
 <slot/>
