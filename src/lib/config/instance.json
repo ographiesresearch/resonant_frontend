@@ -51,7 +51,7 @@
         "resultFlyDur": 2000,
         "projection": "globe",
         "init": {
-            "lngLat": [-120, 42],
+            "lngLat": [-98.579, 39.828],
             "zoom": [3, 4],
             "zoomDur": 3000
         }

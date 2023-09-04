@@ -1,7 +1,7 @@
 <script>
     import LowIncome from '$lib/components/InfoPanel/LowIncome.svelte';
     import EnergyCommunities from '$lib/components/InfoPanel/EnergyCommunities.svelte';
-    import Tabs from '$lib/components/InfoPanel/Tabs.svelte';
+    import IconStatus from '$lib/components/IconStatus.svelte';
 
     import { slide } from 'svelte/transition';
 
@@ -58,30 +58,14 @@
     }
 
 $: add = (gcResult) ? parseContext(gcResult) : undefined;
-
-$: items = [
-            {
-                desc: "Low-Income or Native Land",
-                true: true
-                // true: (data?.pov_rat_hi === 1) ? true : false
-            },
-            {
-                desc: "Energy Communities",
-                true: true
-                // true: (data?.inc_rat_lo === 1) ? true : false
-            },
-            {
-                desc: "Priority",
-                true: true
-                // true: (data?.name_long !== "" && data?.name_long !== undefined) ? true : false
-            },
-        ]
+$: li_native_pct = (selected?.li_native) ? 10 : 0;
+$: nrg_comm_pct = (selected?.nrg_comm) ? 10 : 0;
 
 </script>
 
 {#if add || selected }
-<div class="info-box columns p-3">
-    <div transition:slide = {{ duration: 500, axis: 'y'}} class="column is-offset-three-fifths is-two-fifths">
+<div transition:slide = {{ duration: 500 }} class="info-box columns p-3">
+    <div class="column is-offset-three-fifths is-two-fifths">
         <div id="address" class="box block shadow sticky-top">
             <button on:click={closeInfo} class="button span tag icon-text is-danger shadow is-medium block">
                 <span>Close</span>
@@ -93,6 +77,23 @@ $: items = [
                 {#if add?.muni}
                     <p class="{(add.address) ? "subtitle" : "title"}">{add.muni}, {#if add.state}{add.state}{/if} {#if add.zip}{add.zip}{/if}</p>
                 {/if}
+                <div class="buttons has-text-white">
+                <span class="button icon-text shadow block
+                    {selected?.li_native ? 'has-background-success' : 'has-background-danger'}
+                    {selected?.priority ? 'priority' : null}">
+                        <IconStatus status={selected?.li_native}/>
+                        <span>Low-Income or Native Land</span>
+                </span>
+                <span class="button icon-text shadow block
+                    {selected?.nrg_comm ? 'has-background-success' : 'has-background-danger'}">
+                        <IconStatus status={selected?.nrg_comm}/>
+                        <span>Energy Community</span>
+                </span>
+                </div>
+                <div class="block box">
+                    This site is eligible for up to <code class="has-background-success has-text-white">{li_native_pct + nrg_comm_pct}%</code> additional income tax credit on top of the base <code class="has-text-grey-darker">30%</code> credit.
+                    {#if selected?.priority } It is also in a <span class="has-text-grey-darker priority pl-2 pr-2 pt-1 pb-1">priority area</span>.{/if}
+                </div>
                 </div>
                 <!-- <Tabs {items}/> -->
         </div>
@@ -110,12 +111,18 @@ $: items = [
 </div>
 
 {/if}
-<style>
+<style  lang="scss">
     #address {
         z-index: 40;
     }
     
     div {
         z-index: 20;
+    }
+    .priority {
+        outline-style: solid;
+        outline-width: 0.3rem;
+        outline-offset: -0.3rem;
+        outline-color: $primary;
     }
 </style>

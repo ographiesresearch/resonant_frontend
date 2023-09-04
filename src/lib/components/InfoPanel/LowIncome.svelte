@@ -1,14 +1,13 @@
 <script>
     import Tabs from '$lib/components/InfoPanel/Tabs.svelte';
     import CriterionCard from '$lib/components/InfoPanel/CriterionCard.svelte';
-    import { slide } from 'svelte/transition';
     export let data;
 
     let pov_rat_text;
     $: if (data?.pov_rat_hi === 1) {
-        pov_rat_text = `The containing census tract's 2016-2020 poverty rate of <code>${data.pov_rat.toFixed(2)}%</code> was greater than <code>20%</code>.`
+        pov_rat_text = `Census tract <code>${data?.geoid}</code>'s 2016-2020 poverty rate of <code>${data.pov_rat.toFixed(2)}%</code> was greater than <code>20%</code>.`
     } else if (data?.pov_rat > 0) {
-        pov_rat_text = `The containing census tract's 2016-2020 poverty rate of <code>${data.pov_rat.toFixed(2)}%</code> was less than <code>20%</code>.`
+        pov_rat_text = `Census tract <code>${data?.geoid}</code>'s 2016-2020 poverty rate of <code>${data.pov_rat.toFixed(2)}%</code> was less than <code>20%</code>.`
     } else {
         `The containing census tract's 2016-2020 poverty rate was less than <code>20%</code>.`
     }
@@ -16,9 +15,9 @@
     let inc_rat_text;
     $: regionname = (data?.regiontype === "state") ? data.regiontype : data?.name_msa;
     $: if (data?.inc_rat_lo === 1) {
-        inc_rat_text = `The containing census tract's 2016-2020 Median Family Income of <code>$${data.mfi.toLocaleString()}</code> was less than 80% of the ${regionname} MFI (<code>$${data.mfi_region.toLocaleString()}</code>).`
+        inc_rat_text = `Census tract <code>${data?.geoid}</code>'s 2016-2020 Median Family Income of <code>$${data.mfi.toLocaleString()}</code> was less than 80% of the ${regionname} MFI (<code>$${data.mfi_region.toLocaleString()}</code>).`
     } else if (data?.mfi > 0) {
-        inc_rat_text = `The containing census tract's 2016-2020 Median Family Income of <code>$${data.mfi.toLocaleString()}</code> was greater than 80% of the ${regionname} MFI (<code>$${data.mfi_region.toLocaleString()}</code>).`
+        inc_rat_text = `Census tract <code>${data?.geoid}</code>'s 2016-2020 Median Family Income of <code>$${data.mfi.toLocaleString()}</code> was greater than 80% of the ${regionname} MFI (<code>$${data.mfi_region.toLocaleString()}</code>).`
     } else {
         inc_rat_text = `The containing census tract's 2016-2020 Median Family Income of was greater than 80% of the regional MFI.`
     }
@@ -100,9 +99,9 @@
 </script>
 
 <CriterionCard {status} {priority} title="Low-Income Community or Native Land">
-    <Tabs {items} small=true>
+    <Tabs {items}>
         {#if priority}
-        <div transition:slide = {{ duration: 400}} class="block box has-background-primary">
+        <div class="block box has-background-primary">
             <p class="subtitle has-text-white">Priority Criteria</p>
             <Tabs items={priorityItems}>
             </Tabs>
