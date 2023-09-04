@@ -63,7 +63,7 @@ $: nrg_comm_pct = (selected?.nrg_comm) ? 10 : 0;
 
 </script>
 
-{#if add || selected }
+{#if add }
 <div transition:slide = {{ duration: 500 }} class="info-box columns p-3">
     <div class="column is-offset-three-fifths is-two-fifths">
         <div id="address" class="box block shadow sticky-top">
