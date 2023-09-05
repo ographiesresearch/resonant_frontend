@@ -64,6 +64,7 @@
                 type: 'vector',
                 url: 'mapbox://'.concat(p.source)
             });
+            console.log(map.getStyle().layers);
             p.mapStyles.forEach((style) => {
                 style.source = name;
                 style["source-layer"] = p.layer;
@@ -103,7 +104,7 @@
                 }
                 map.addLayer(
                     style,
-                    "land-structure-polygon"
+                    "waterway"
                 )
             })
         });
