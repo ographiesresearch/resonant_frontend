@@ -52,7 +52,6 @@
                 citation: 'U.S. Census Bureau. 2020. <em>American Indian/Alaska Native/Native Hawaiian Areas</em>. Downloaded using the <code>tigris</code> R package.'
             },
         ]
-        $: console.log(data);
 
         let pp_text;
         $: if (data?.pp === 1) {
