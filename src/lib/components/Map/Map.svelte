@@ -88,7 +88,7 @@
                             "line-translate": [2,2]
                         }
                     },
-                    "land-structure-polygon"
+                    "building-number-label"
                     )
                     map.setPaintProperty(
                         style.id.concat("-shadow"), 
@@ -102,10 +102,17 @@
                             3
                     ])
                 }
-                map.addLayer(
-                    style,
-                    "waterway"
-                )
+                if (style.type === "line") {
+                    map.addLayer(
+                        style,
+                        "building-number-label"
+                    )
+                } else {
+                    map.addLayer(
+                        style,
+                        "waterway"
+                    )
+                }
             })
         });
     }
