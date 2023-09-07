@@ -1,8 +1,11 @@
-# svelte-map-app
+# Resonant Frontend
 
-<img width="1333" alt="screenshot" src="https://github.com/Unnamed-Lab-DUSP/svelte-map-app/assets/10646361/1bb15da4-d70e-4a84-8349-9d8cb00fef13">
+<img width="1591" alt="Screenshot 2023-09-05 at 9 15 57 AM" src="https://github.com/ericrobskyhuntley/resonant_frontend/assets/10646361/5af1c24c-e47b-4e13-be42-7696b2e45b32">
 
-This is a simple templated mapping application, built using Svelte, SvelteKit, Node, Bulma, and Mapbox that can be easily customized using the fields in `src/config/instance.json`. It includes basic, but common, documentation pages, which can be written in markdown, and the map allows the user to select locations using click events or forward geocoding, which populate a bare-bones info panel.
+## Netlify Deployment
+https://elaborate-kitsune-f9e948.netlify.app/
+
+This is the frot end for the Solar Low-Income Tax Credit Map, [currently deployed on Netlify](https://elaborate-kitsune-f9e948.netlify.app/). built using Svelte, SvelteKit, Node, Bulma, and Mapbox that can be easily customized using the fields in `src/config/instance.json`, as well as the layers and geomtries provided.
 
 ## Configuration
 
