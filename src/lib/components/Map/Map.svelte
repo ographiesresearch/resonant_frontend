@@ -64,7 +64,6 @@
                 type: 'vector',
                 url: 'mapbox://'.concat(p.source)
             });
-            console.log(map.getStyle().layers);
             p.mapStyles.forEach((style) => {
                 style.source = name;
                 style["source-layer"] = p.layer;

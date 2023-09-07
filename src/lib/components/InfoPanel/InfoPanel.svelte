@@ -119,12 +119,6 @@ $: nrg_comm_pct = (selected?.nrg_comm) ? 10 : 0;
     div {
         z-index: 20;
     }
-    .priority {
-        outline-style: solid;
-        outline-width: 0.3rem;
-        outline-offset: -0.3rem;
-        outline-color: $primary;
-    }
     .button-passive {
         pointer-events: none;
     }

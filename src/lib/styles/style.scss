@@ -40,6 +40,13 @@ body, html, #app {
   filter: drop-shadow(.25rem .25rem 0rem $danger-dark);
 }
 
+.priority {
+    outline-style: solid;
+    outline-width: 0.3rem;
+    outline-offset: -0.3rem;
+    outline-color: $primary;
+}
+
 .hero-bg-image, .page-bg {
   @extend .hero;
   background-image: url(#{$background-image});
