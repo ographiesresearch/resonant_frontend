@@ -6,7 +6,7 @@
 </script>
 <svelte:head>
   <link rel="icon shortcut" href={favicon}>
+  <title>{site_data.title}</title>
 </svelte:head>
-<title>{site_data.title}</title>
 <Navbar pages={site_data.pages}/>
 <slot />
