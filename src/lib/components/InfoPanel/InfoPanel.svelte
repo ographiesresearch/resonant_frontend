@@ -60,6 +60,7 @@
 $: add = (gcResult) ? parseContext(gcResult) : undefined;
 $: li_native_pct = (selected?.li_native) ? 10 : 0;
 $: nrg_comm_pct = (selected?.nrg_comm) ? 10 : 0;
+$: qualifying_pct = li_native_pct + nrg_comm_pct;
 
 </script>
 
@@ -91,8 +92,14 @@ $: nrg_comm_pct = (selected?.nrg_comm) ? 10 : 0;
                 </span>
                 </div>
                 <div class="block box">
-                    This site is eligible for up to <code class="has-background-success has-text-white">{li_native_pct + nrg_comm_pct}%</code> additional income tax credit on top of the base <code class="has-text-grey-darker">30%</code> credit.
-                    {#if selected?.priority } It is also in a <span class="has-text-grey-darker priority pl-2 pr-2 pt-1 pb-1">priority area</span>.{/if}
+                    {#if qualifying_pct > 0}
+                        This site is eligible for up to <code class="has-background-success has-text-white">{qualifying_pct}%</code> additional income tax credit on top of the base <code class="has-text-grey-darker">30%</code> credit.
+                    {:else}
+                        This site is <span class="has-text-white has-background-danger pl-2 pr-2 pt-1 pb-1">not eligible</span> for additional income tax credit on top of the base <code class="has-text-grey-darker">30%</code>.
+                    {/if}
+                    {#if selected?.priority }
+                        It meets the IRS's <span class="has-text-grey-darker priority pl-2 pr-2 pt-1 pb-1">alternative selection criteria</span>.
+                    {/if}
                 </div>
                 </div>
                 <!-- <Tabs {items}/> -->
