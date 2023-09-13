@@ -1,32 +1,33 @@
 <script>
     import { onMount } from 'svelte';
-    import { fade, slide } from 'svelte/transition';
-    let loadState = false;
+    import { fly } from 'svelte/transition';
     export let background;
     export let title;
     export let subtitle;
+    let loadState = false;
     onMount(() => loadState = true);
 </script>
 
-
-{#if loadState}
-<section transition:fade = {{ duration: 1000}} class="hero {(background) ? 'hero-bg-image' : null} is-fullheight-with-navbar">
+<section class="hero {(background) ? 'hero-bg-image' : null} is-fullheight-with-navbar">
     <div class="container">
         <div class="hero-body">
             <div class="">
-                {#if title}
-                <p transition:slide = {{ duration: 800}} class="title p-3 box has-background-dark has-text-primary is-size-1 is-size-2-mobile shadow">
+                {#if title && loadState}
+                <p transition:fly = {{ duration: 600, x: 500 }} class="title p-3 box has-background-dark has-text-primary is-size-1 is-size-2-mobile shadow">
                     {title}
                 </p>
                 {/if}
-                {#if subtitle}
-                <p class="subtitle p-3 mt-1 box has-background-dark has-text-primary is-size-2 is-size-3-mobile shadow">
+                {#if subtitle && loadState}
+                <p transition:fly = {{ duration: 600, x: -500, delay: 200 }} class="subtitle p-3 mt-1 box has-background-dark has-text-primary is-size-2 is-size-3-mobile shadow">
                     {subtitle}
                 </p>
                 {/if}
-                <slot/>
+                {#if loadState}
+                <div transition:fly = {{ duration: 600, x: 500, delay: 400 }}>
+                    <slot/>
+                </div>
+                {/if}
             </div>
         </div>
     </div>
 </section>
-{/if}

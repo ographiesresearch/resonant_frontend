@@ -1,7 +1,6 @@
 <script>
     import HeroPage from '$lib/components/HeroPage.svelte';
     import WelcomeButton from '$lib/components/WelcomeButton.svelte';
-    import { slide } from 'svelte/transition';
 
     export let authors;
     export let orgs;

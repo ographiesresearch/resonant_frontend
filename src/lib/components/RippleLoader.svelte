@@ -15,7 +15,7 @@
 </script>
 
 {#if loadingState}
-<div transition:fade={{duration: 800}} class="wrapper">
+<div :fade={{duration: 800}} class="wrapper">
     <div transition:fly={{ 
         y: flyInProps.distance, 
         duration: flyInProps.duration 
