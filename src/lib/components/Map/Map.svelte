@@ -182,7 +182,7 @@
         <ReverseGeocoder bind:lngLat bind:gcResult />
         <ForwardGeocoder bind:lngLat bind:gcResult bind:selected />
         <SelectedGeometry bind:selected bind:lngLat bind:loadingState/>
-        <Legend bind:marker title="Program Eligibility"/>
+        <Legend bind:marker title="Income Tax Credit Eligibility"/>
     {/if}
 </div>
 {#if marker }

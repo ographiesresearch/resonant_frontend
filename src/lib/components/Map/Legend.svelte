@@ -14,8 +14,8 @@
     <p class="is-size-7 has-text-weight-bold mb-2">{title}</p>
     <div class="is-size-7">
     <div><span style="outline-color: {colors.primary}; outline-width: 2px"></span>Priority Area</div>
-    <div><span style="background-color: {colors.success}"></span>Energy and Low-Income</div>
-    <div><span style="background-color: {colors.success}80"></span>Energy or Low-Income</div>
+    <div><span style="background-color: {colors.success}"></span>20% <em class="has-text-grey-light">(Energy and Low-Income)</em></div>
+    <div><span style="background-color: {colors.success}80"></span>10% <em  class="has-text-grey-light">(Energy or Low-Income)</em></div>
     </div>
 </div>
 {/if}
@@ -23,7 +23,7 @@
 <style>
     .legend {
         border-radius: 3px;
-        bottom: 30px;
+        bottom: 40px;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
         padding: 10px;
