@@ -17,7 +17,7 @@
     </span>
     {#if priority && status}
     <span class="tag icon-text is-{status ? 'success' : 'danger'} shadow is-small block priority">
-        <span>Priority area!</span>
+        <span>Alternative Selection Criteria!</span>
     </span>
     {/if}
     <p class="title has-text-white">

@@ -101,7 +101,7 @@
     <Tabs {items}>
         {#if priority}
         <div class="block box has-background-primary">
-            <p class="subtitle has-text-white">Priority Criteria</p>
+            <p class="subtitle has-text-white">Alternative Selection Criteria</p>
             <Tabs items={priorityItems}>
             </Tabs>
         </div>
