@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import { fly } from 'svelte/transition';
-    import colors from '$lib/styles/app.module.scss';
+    import bg from '$lib/background.jpg';
     export let background;
     export let title;
     export let subtitle;
@@ -10,7 +10,7 @@
 </script>
 
 <section class="hero {(background) ? 'hero-bg-image' : null} is-fullheight-with-navbar"
-    style={(background) ? `background-image: url($lib/${colors.backgroundImage});` : null}>
+    style={(background) ? `background-image: url(${bg});` : null}>
     <div class="container">
         <div class="hero-body">
             <div class="">
