@@ -28,11 +28,11 @@
     "native_lands": {
         "name": "Native Lands",
         "geographies": ["native_2020"],
-        "source": "U.S. Census Bureau",
+        "source": "U.S. Census Bureau, Geography Division",
         "dates": "2020",
         "url": "https://www.census.gov/cgi-bin/geo/shapefiles/index.php?year=2020&layergroup=American+Indian+Area+Geography",
         "description": "We use MTFCC codes and, in limited cases, Tribal names to identify lands. Specifically, we use Federal/State American Indian Reservation (AIR) or Off-Reservation Trust Land (`G2100`), Federal AIR/ORTL Joint-Use Area (`G2170`), Hawaiian Home Land (`G2120`), and Alaska Native Village Statistical Area (`G2170`). Furthermore, given recent jurisprudence in McGirt v. Oklahoma, the OTSAs (`G2140` and `G2170`) of the Cherokee, Chickasaw, Choctaw, Muscogee (Creek), and Seminole Nations are treated as identical to American Indian Reservations.",
-        "citation": "U.S. Census Bureau. 2016-2020. 'Median Family Income (B19113).' _American Community Survey 5-Year Estimates_."
+        "citation": "U.S. Census Bureau, Geography Division. 2020. 'American Indian Area Geography.' TIGER/Line Shapefiles."
     },
     "ffe": {
         "name": "Fossil Fuel Employment",
