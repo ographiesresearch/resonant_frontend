@@ -13,7 +13,7 @@
 <div id="legend" transition:fade = {{ duration: 600}} class="legend has-background-white shadow">
     <p class="is-size-7 has-text-weight-bold mb-2">{title}</p>
     <div class="is-size-7">
-    <div><span style="outline-color: {colors.primary}; outline-width: 2px"></span>Alternative Selection Criteria</div>
+    <div><span style="outline-color: {colors.primary}; outline-width: 2px"></span>Additional Selection Criteria</div>
     <div><span style="background-color: {colors.success}"></span>20% <em class="has-text-grey-light">(Energy and Low-Income)</em></div>
     <div><span style="background-color: {colors.success}80"></span>10% <em  class="has-text-grey-light">(Energy or Low-Income)</em></div>
     </div>
