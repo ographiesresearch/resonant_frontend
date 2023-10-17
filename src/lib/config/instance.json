@@ -1,7 +1,7 @@
 {
     "title": "Clean Energy Tax Credit Map",
     "subtitle": "The Inflation Reduction Act (IRA) is putting tens of billions of dollars on the table to support solar development in marginalized communities. We built this tool to help you determine whether projects in your community are eligible.",
-    "description" : "This mapping tool combines geographic criteria used to determine eligibility for two Tax Credit programs: the Energy Communities and Low-Income Communities Bonuses. It also includes areas likely to be prioritized based on IRS guidance released in June 2023. Eligibility for this location is derived from the 2020 New Market Tax Credit Program maps. Locations that are only eligible on the 2015 maps may still apply for Category 1 through August 31st, 2024.",
+    "description" : "This mapping tool combines geographic criteria used to determine eligibility for two Tax Credit programs: the Energy Communities and Low-Income Communities Bonuses. It also includes areas likely to be prioritized based on IRS guidance released in June 2023. Eligibility for low-income locations is derived from the 2020 New Market Tax Credit Program maps. Locations that are only eligible on the 2015 maps may still apply for Category 1 through August 31st, 2024.",
     "logo": "https://images.squarespace-cdn.com/content/v1/56fbfd2d37013b142d331d72/1500927478729-Z0V8SX4DQTPDMRY2D0TX/RE_Logo_MdText_Yellow_crop-01.png?format=1500w",
     "authors": [{
         "name": "Eric Robsky Huntley, PhD",
