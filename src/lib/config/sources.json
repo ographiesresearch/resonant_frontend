@@ -1,7 +1,7 @@
 {
     
     "choropleth": {
-        "source": "ericrobskyhuntley.resonant-energy",
+        "source": "ericrobskyhuntley.resonant",
         "layer": "geographies",
         "queryLayer": true,
         "mapStyles": [{
@@ -30,7 +30,7 @@
         }]
     },
     "priority": {
-        "source": "ericrobskyhuntley.resonant-energy",
+        "source": "ericrobskyhuntley.resonant",
         "layer": "additional",
         "mapStyles": [{
             "id": "priority_boundaries-outline",

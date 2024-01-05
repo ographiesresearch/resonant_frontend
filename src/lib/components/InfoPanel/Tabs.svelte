@@ -26,10 +26,10 @@
     {#each items as item}
         <button class="button shadow has-text-centered
             {activeTab === item.desc ? 'is-active' : ''}
-            {item.true ? 'is-success' : 'is-danger'}" 
+            {item.status ? 'is-success' : 'is-danger'}" 
             on:click={toggleCriterion(item.desc)}>
                 <span class="icon-text">
-                    <IconStatus status={item.true}/>
+                    <IconStatus status={item.status}/>
                     <span>{item.desc}</span>
                 </span>
         </button>

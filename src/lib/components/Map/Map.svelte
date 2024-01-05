@@ -146,6 +146,8 @@
                 loadingState = !loadingState
                 map.setMinZoom(props.init.zoom[1]);
             });
+        } else {
+            map.setMinZoom(props.init.zoom[1]);
         }
 
         map.on('style.load', () => {

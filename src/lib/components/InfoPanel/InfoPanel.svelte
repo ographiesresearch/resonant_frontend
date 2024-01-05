@@ -58,7 +58,12 @@
     }
 
 $: add = (gcResult) ? parseContext(gcResult) : undefined;
-$: li_native_pct = (selected?.li_native) ? 10 : 0;
+
+$: li_native = selected?.low_inc | selected?.native;
+$: li_native_pct = (li_native) ? 10 : 0;
+
+$: priority = selected?.pp | selected?.nrg_disadv;
+
 $: nrg_comm_pct = (selected?.nrg_comm) ? 10 : 0;
 $: qualifying_pct = li_native_pct + nrg_comm_pct;
 
@@ -80,8 +85,8 @@ $: qualifying_pct = li_native_pct + nrg_comm_pct;
                 {/if}
                 <div class="buttons has-text-white">
                 <span class="button-passive button icon-text shadow block
-                    {selected?.li_native ? 'has-background-success' : 'has-background-danger'}
-                    {selected?.priority ? 'priority' : null}">
+                    {li_native  ? 'has-background-success' : 'has-background-danger'}
+                    {priority ? 'priority' : null}">
                         <IconStatus status={selected?.li_native}/>
                         <span>Low-Income or Native Land</span>
                 </span>
@@ -97,7 +102,7 @@ $: qualifying_pct = li_native_pct + nrg_comm_pct;
                     {:else}
                         This site is <span class="has-text-white has-background-danger pl-2 pr-2 pt-1 pb-1">not eligible</span> for additional income tax credit on top of the base <code class="has-text-grey-darker">30%</code>.
                     {/if}
-                    {#if selected?.priority }
+                    {#if priority }
                         It meets the IRS's <span class="has-text-grey-darker priority pl-2 pr-2 pt-1 pb-1">alternative selection criteria</span>.
                     {/if}
                 </div>
@@ -108,6 +113,7 @@ $: qualifying_pct = li_native_pct + nrg_comm_pct;
         <div>
             <LowIncome
                 data={selected}
+                priority={priority}
             />
             <EnergyCommunities
                 data={selected}
