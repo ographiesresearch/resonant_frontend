@@ -1,4 +1,5 @@
 <script>
+    import { loaded } from '../../../stores.js';
     import { onDestroy, onMount, setContext } from 'svelte';
     import ForwardGeocoder from '$lib/components/Map/Geocoders/Forward.svelte';
     import ReverseGeocoder from '$lib/components/Map/Geocoders/Reverse.svelte';
@@ -124,7 +125,7 @@
             container: container,
             style: props.style,
             center: props.init.lngLat,
-            zoom: (props.init.zoom.length === 2) ? props.init.zoom[0] : props.init.zoom,
+            zoom: !$loaded ? props.init.zoom[0] : props.init.zoom[1],
             projection: props.projection,
             maxBounds: props.maxBounds
         }
@@ -139,10 +140,14 @@
         map.on ('load', () => {
             addSources(sources);
         })
-        map.once('zoomend', () => {
-            loadingState = !loadingState
-            map.setMinZoom((props.init.zoom.length === 2) ? props.init.zoom[1] : props.init.zoom);
-        });
+
+        if (!$loaded) {
+            map.once('zoomend', () => {
+                loadingState = !loadingState
+                map.setMinZoom(props.init.zoom[1]);
+            });
+        }
+
         map.on('style.load', () => {
             map.on('click', (e) => {
                 lngLat = e.lngLat;
@@ -157,7 +162,7 @@
             })
 
 
-            if (props.init.zoom.length === 2) {
+            if (!$loaded) {
                 map.flyTo({
                     center: props.init.LngLat,
                     zoom: props.init.zoom[1],
@@ -172,12 +177,15 @@
         if (map) {
              map.remove()
         };
+        $loaded = true;
     });
 </script>
 
 <div id ="map" class={(selected !== undefined && mobile) ? 'non-interactive' : null} bind:this={container}>
     {#if map}
-        <RippleLoader bind:loadingState />
+        {#if !$loaded}
+            <RippleLoader bind:loadingState />
+        {/if}
         <Marker bind:lngLat bind:marker />
         <ReverseGeocoder bind:lngLat bind:gcResult />
         <ForwardGeocoder bind:lngLat bind:gcResult bind:selected />
