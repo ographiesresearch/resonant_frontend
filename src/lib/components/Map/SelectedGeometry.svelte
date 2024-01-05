@@ -1,5 +1,5 @@
 <script>
-    import { mapbox } from '$lib/scripts/utils';
+    import { mapbox, post_15_nmtc } from '$lib/scripts/utils';
 
     export let selected;
     export let lngLat;
@@ -24,6 +24,11 @@
             })
             .then((d) => {
                 d = (d.features.length > 0) ? d.features[0].properties : undefined;
+                if (post_15_nmtc) {
+                    if (d?.deprec && !(d?.nrg_comm || d?.native) ) {
+                        d = undefined;
+                    }
+                }
                 return d;
             })
             .then((d) => {
