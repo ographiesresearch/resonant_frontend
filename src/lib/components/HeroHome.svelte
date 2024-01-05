@@ -30,11 +30,13 @@
             </div>
             <div class="box has-background-dark p-3 has-text-white shadow">
                 <span class="is-italic">Built by...</span>
-                <ul>
+                <div class="columns">
                     {#each authors as author}
-                        <li><a href="{author.url}">{author.name}</a>, {author.role}</li>
+                        <div class="column">
+                            <a href="{author.url}">{author.name}</a><br>{author.affiliation}<br>{author.location}<br>{author.role}
+                        </div>
                     {/each}
-                </ul>
+                </div>
             </div>
         </div>
     </div>
