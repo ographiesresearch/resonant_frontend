@@ -1,8 +1,8 @@
 {
     
     "choropleth": {
-        "source": "ericrobskyhuntley.b3m8uynm",
-        "layer": "resonant_overlay-3wot0h",
+        "source": "ericrobskyhuntley.resonant-energy",
+        "layer": "geographies",
         "queryLayer": true,
         "mapStyles": [{
             "id": "choropleth-fill",
@@ -11,12 +11,16 @@
                 "fill-opacity": [
                             "case",
                             ["all",
-                                ["==", ["get", "li_native"], 1],
-                                ["==", ["get", "nrg_comm"], 1]
+                                ["any", 
+                                    ["get", "native"],
+                                    ["get", "low_inc"]
+                                ],
+                                ["get", "nrg_comm"]
                             ], 1,
                             ["any",
-                                ["==", ["get", "li_native"], 1],
-                                ["==", ["get", "nrg_comm"], 1]
+                                ["get", "native"],
+                                ["get", "low_inc"],
+                                ["get", "nrg_comm"]
                             ], 0.5, 
                             0
                         ],
@@ -26,8 +30,8 @@
         }]
     },
     "priority": {
-        "source": "ericrobskyhuntley.02373tha",
-        "layer": "priority_boundaries-6gvqlb",
+        "source": "ericrobskyhuntley.resonant-energy",
+        "layer": "additional",
         "mapStyles": [{
             "id": "priority_boundaries-outline",
             "type": "line",
