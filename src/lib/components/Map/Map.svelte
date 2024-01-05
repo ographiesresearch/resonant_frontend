@@ -26,6 +26,7 @@
     
     let container;
     let map;
+    let post_15_nmtc = new Date() > new Date("2024-08-31");
 
     let gcResult = undefined;
     let selected = undefined;
@@ -139,6 +140,9 @@
         
         map.on ('load', () => {
             addSources(sources);
+            if (post_15_nmtc) {
+                map.setFilter('choropleth-fill', ["!=", ['get', 'deprec'], true])
+            }
         })
 
         if (!$loaded) {
