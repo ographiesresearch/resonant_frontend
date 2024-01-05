@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    import { fly } from 'svelte/transition';
+    import { fade } from 'svelte/transition';
     import bg from '$lib/background.jpg';
     export let background;
     export let title;
@@ -15,17 +15,17 @@
         <div class="hero-body">
             <div class="">
                 {#if title && loadState}
-                <p transition:fly = {{ duration: 600, x: 500 }} class="title p-3 box has-background-dark has-text-primary is-size-1 is-size-2-mobile shadow">
+                <p transition:fade = {{ duration: 200 }} class="title p-3 box has-background-dark has-text-primary is-size-1 is-size-2-mobile shadow">
                     {title}
                 </p>
                 {/if}
                 {#if subtitle && loadState}
-                <p transition:fly = {{ duration: 600, x: -500, delay: 200 }} class="subtitle p-3 mt-1 box has-background-dark has-text-primary is-size-2 is-size-3-mobile shadow">
+                <p transition:fade = {{ duration: 200, delay: 50 }} class="subtitle p-3 mt-1 box has-background-dark has-text-primary is-size-2 is-size-3-mobile shadow">
                     {subtitle}
                 </p>
                 {/if}
                 {#if loadState}
-                <div transition:fly = {{ duration: 600, x: 500, delay: 400 }}>
+                <div transition:fade = {{ duration: 200, delay: 100 }}>
                     <slot/>
                 </div>
                 {/if}
