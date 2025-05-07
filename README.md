@@ -1,5 +1,7 @@
 # Resonant Frontend
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5656f08d-00e6-4eb6-96a3-c590a98ac876/deploy-status)](https://app.netlify.com/sites/elaborate-kitsune-f9e948/deploys) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
+
 <img width="1591" alt="Screenshot 2023-09-05 at 9 15 57 AM" src="https://github.com/ericrobskyhuntley/resonant_frontend/assets/10646361/5af1c24c-e47b-4e13-be42-7696b2e45b32">
 
 ## Netlify Deployment
