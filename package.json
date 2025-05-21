@@ -23,6 +23,6 @@
 		"bulma": "^0.9.4",
 		"mapbox-gl": "^2.15.0",
 		"marked": "^7.0.5",
-		"svelte-device-info": "^1.0.0"
+		"svelte-device-info": "^1.0.6"
 	}
 }
